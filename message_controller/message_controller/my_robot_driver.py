@@ -34,14 +34,15 @@ class MyRobotDriver:
 
         command_motor_left = (forward_speed - angular_speed * HALF_DISTANCE_BETWEEN_WHEELS) / WHEEL_RADIUS
         command_motor_right = (forward_speed + angular_speed * HALF_DISTANCE_BETWEEN_WHEELS) / WHEEL_RADIUS
-        if command_motor_left > 6.28:
-            command_motor_left = 6.28
-        elif command_motor_left < -6.28:
-            command_motor_left = -6.28
-        elif command_motor_right > 6.28:
-            command_motor_right = 6.28
-        elif command_motor_right < -6.28:
-            command_motor_right = -6.28
+
+        if command_motor_left > 20:
+            command_motor_left = 20
+        elif command_motor_left < -20:
+            command_motor_left = -20
+        if command_motor_right > 20:
+            command_motor_right = 20
+        elif command_motor_right < -20:
+            command_motor_right = -20
 
         self.__left_motor.setVelocity(command_motor_left)
         self.__right_motor.setVelocity(command_motor_right)
