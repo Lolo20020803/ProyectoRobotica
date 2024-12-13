@@ -6,13 +6,13 @@ Este proyecto permite controlar un robot simulado en Webots utilizando un joysti
 ## Requisitos
 
 ### Hardware
-- Joystick analógico compatible
+- Joystick analógico compatible (Xbox, PlayStation, Nintendo Switch o Mando Generico)
 - Ordenador con capacidad de ejecutar Webots y Ros 2 
 
 ### Software
 - [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/)
 - [Webots R2023a](https://cyberbotics.com)
-- Paquete `pygames` de Python para manejar entradas del joystick
+- Paquete `pygame` de Python para manejar entradas del joystick
 - Python 3.8 o superior
 
 ## Instalación
@@ -29,23 +29,35 @@ colcon build
 ```bash
 rosdep install --from-paths src --ignore-src -r -y
 ```
+
+```bash
+pip install pygame
+```
 ## Ejecución
 
 
+### 1 Hacer source del install
+Comprueba los posibles archivos dentro de la carpeta `install`, ya que depende de tu terminal.
 
-### 1. Ejecutar launcher de Ros2
+```bash
+source /install/local_setup.*
+```
+
+### 2. Ejecutar launcher de Ros2
 ```bash
 ros2 launch message_controller robot_launch.py
 ```
 
-### 2. Verificar funcionamiento
+
+### 3. Verificar funcionamiento
 Usa el joystick para mover el robot en Webots. Asegúrate de que el robot responde correctamente a los comandos de entrada.
 
-## Estructura del Proyecto
+## Estructura del Proyecto 
+Esta estructura se completa al hacer el build del proyecto.
 ```
 /<nombre_proyecto>/
 ├── launch/
-│   ├── jtobot_launch.py      # Archivo de lanzamiento para el projecto
+│   ├── robot_launch.py      # Archivo de lanzamiento para el projecto
 ├── message_controller/
 │   ├── __init__.py             # Archivo que se modifica para ejecutar todo (no borrar)
 │   ├── message_controller_Joystick.py             # Nodo que traduce comandos al topic
@@ -62,15 +74,6 @@ Usa el joystick para mover el robot en Webots. Asegúrate de que el robot respon
 └── README.md                        # Archivo actual
 ```
 
-## Personalización
-- Ajusta los valores de sensibilidad del joystick en `config/joystick_params.yaml` según las especificaciones del hardware.
-- Modifica los parámetros del robot en `config/robot_params.yaml` para adaptarlos al modelo de Webots.
-
 ## Contribuciones
 Las contribuciones son bienvenidas. Por favor, abre un *pull request* o un *issue* si encuentras problemas o tienes sugerencias para mejorar el proyecto.
 
-## Licencia
-Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
-
-## Créditos
-Este proyecto fue desarrollado por [Alex].
