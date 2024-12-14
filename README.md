@@ -12,16 +12,14 @@ Este proyecto permite controlar un robot simulado en Webots utilizando un joysti
 ### Software
 - [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/)
 - [Webots R2023a](https://cyberbotics.com)
-- Paquete `pygame` de Python para manejar entradas del joystick
 - Python 3.8 o superior
 
 ## Instalación
 
 ### 1. Clonar el repositorio
 ```bash
-cd ~/ros2_ws/src
-git clone <URL_DEL_REPOSITORIO>
-cd ~/ros2_ws
+git clone https://github.com/Lolo20020803/ProyectoRobotica.git
+cd ~/ProyectoRobotica
 colcon build
 ```
 
@@ -55,23 +53,28 @@ Usa el joystick para mover el robot en Webots. Asegúrate de que el robot respon
 ## Estructura del Proyecto 
 Esta estructura se completa al hacer el build del proyecto.
 ```
-/<nombre_proyecto>/
-├── launch/
-│   ├── robot_launch.py      # Archivo de lanzamiento para el projecto
-├── message_controller/
-│   ├── __init__.py             # Archivo que se modifica para ejecutar todo (no borrar)
-│   ├── message_controller_Joystick.py             # Nodo que traduce comandos al topic
-│   ├── my_robot_driver.py             # Nodo que traduce comandos del topic al robot
-├── resources/
-│   ├── message_controller       
-│   ├── my_robot.urdf            # Configuración del robot
-├── worlds/
-│   ├── my_world.wbt            # Configuración del mundo de webots
-├── package.xml                      # Información del paquete
-├── setup.cfg                      
-├── setup.py
-├── .gitignore
-└── README.md                        # Archivo actual
+ProyectoRobotica
+├── build
+├── install
+├── log
+├── message_controller
+│ ├── launch
+│ │   └── robot_launch.py
+│ ├── message_controller
+│ │   ├── __init__.py
+│ │   ├── message_controller copy.py
+│ │   ├── message_controller.py
+│ │   └── my_robot_driver.py
+│ ├── resource
+│ │   ├── message_controller
+│ │   └── my_robot.urdf
+│ ├── worlds
+│ │   ├── my_world copy.wbt
+│ │   └── my_world.wbt
+│ ├── package.xml
+│ ├── setup.cfg
+│ ├── setup.py
+└── README.md
 ```
 
 ## Contribuciones

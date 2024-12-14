@@ -67,11 +67,11 @@ def main(args=None):
     rclpy.init(args=args)
     
     message_controller = MessageController()
-
-    message_controller.mando()
-    message_controller.destroy_node()
-    rclpy.shutdown()
-
+    try:
+        message_controller.mando()
+    except KeyboardInterrupt:
+        message_controller.destroy_node()
+        rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

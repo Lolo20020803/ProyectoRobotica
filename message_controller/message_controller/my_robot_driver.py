@@ -3,7 +3,7 @@ from geometry_msgs.msg import Twist
 
 HALF_DISTANCE_BETWEEN_WHEELS = 0.045
 WHEEL_RADIUS = 0.025
-
+MAX_SPEED = 15.0
 class MyRobotDriver:
     def init(self, webots_node, properties):
         self.__robot = webots_node.robot
@@ -35,14 +35,14 @@ class MyRobotDriver:
         command_motor_left = (forward_speed - angular_speed * HALF_DISTANCE_BETWEEN_WHEELS) / WHEEL_RADIUS
         command_motor_right = (forward_speed + angular_speed * HALF_DISTANCE_BETWEEN_WHEELS) / WHEEL_RADIUS
 
-        if command_motor_left > 20:
-            command_motor_left = 20
-        elif command_motor_left < -20:
-            command_motor_left = -20
-        if command_motor_right > 20:
-            command_motor_right = 20
-        elif command_motor_right < -20:
-            command_motor_right = -20
+        if command_motor_left > MAX_SPEED:
+            command_motor_left = MAX_SPEED
+        elif command_motor_left < -MAX_SPEED:
+            command_motor_left = -MAX_SPEED
+        if command_motor_right > MAX_SPEED:
+            command_motor_right = MAX_SPEED
+        elif command_motor_right < -MAX_SPEED:
+            command_motor_right = -MAX_SPEED
 
         self.__left_motor.setVelocity(command_motor_left)
         self.__right_motor.setVelocity(command_motor_right)
