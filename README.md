@@ -24,9 +24,6 @@ colcon build
 ```
 
 ### 2. Instalar dependencias
-```bash
-rosdep install --from-paths src --ignore-src -r -y
-```
 
 ```bash
 pip install pygame
